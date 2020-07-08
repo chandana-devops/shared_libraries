@@ -1,0 +1,13 @@
+def call(config){
+def credid=config['credid']
+def tomcatip=config['tomcatip']
+def tomcatadd=config['tomcatadd']
+def webapps=config['webapps']
+def warfile=config['warfile']
+sshagent(['sharedlib']) {
+    sh "ssh ${credid}@${tomcatip} ${tomcatadd}/shutdown.sh"
+sh "ssh ${credid}@${tomcatip} rm -rf ${webapps}/${warfile}*"
+sh "scp target/${warfile} ${credid}@${tomcatip}:${webapps}"
+sh "ssh ${credid}@${tomcatip} ${tomcatadd}/startup.sh"
+}
+}
