@@ -1,4 +1,5 @@
 def call(config){
+def username=config['username']
 def credid=config['credid']
 def tomcatip=config['tomcatip']
 def tomcatadd=config['tomcatadd']
