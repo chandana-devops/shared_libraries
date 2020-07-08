@@ -4,7 +4,7 @@ def tomcatip=config['tomcatip']
 def tomcatadd=config['tomcatadd']
 def webapps=config['webapps']
 def warfile=config['warfile']
-sshagent(['sharedlib']) {
+sshagent(['sshagent']) {
     sh "ssh ${credid}@${tomcatip} ${tomcatadd}/shutdown.sh"
 sh "ssh ${credid}@${tomcatip} rm -rf ${webapps}/${warfile}*"
 sh "scp target/${warfile} ${credid}@${tomcatip}:${webapps}"
