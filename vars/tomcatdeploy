@@ -7,7 +7,7 @@ def warfile = config['warfile']
 sshagent(['sshagent']) {
     sh "ssh -o StrictHostKeyChecking=no ${credid}@${tomcatip} ${tomcatadd}/bin/shutdown.sh"
 sh "ssh ${credid}@${tomcatip} rm -rf ${tomcatadd}/webapps/${warfile}*"
-sh "scp target/${warfile} ${credid}@${tomcatip}:${tomcatadd}/webapps/"
+sh "scp target/$springmvc.war ${credid}@${tomcatip}:${tomcatadd}/webapps/"
 sh "ssh ${credid}@${tomcatip} ${tomcatadd}/bin/startup.sh"
 }
 }
