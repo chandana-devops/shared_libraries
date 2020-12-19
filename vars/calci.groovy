@@ -1,4 +1,4 @@
-def call(a,b){
+def add(a,b){
   println("Sum of $a and $b is ${a+b}")
 }
 def sub(a,b){
